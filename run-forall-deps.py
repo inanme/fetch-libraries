@@ -10,6 +10,7 @@ def my_exec(command):
 	process.communicate()
 	exit_code = process.wait()
 
+my_exec("git clean -fxd")
 my_exec("git reset --hard origin/master")
 
 scalaTests=["""

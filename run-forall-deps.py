@@ -11,7 +11,7 @@ def my_exec(command):
 	exit_code = process.wait()
 
 my_exec("git clean -fxd")
-my_exec("git reset --hard origin/master")
+my_exec("git checkout build.sbt")
 
 scalaTests=["""
 "org.scalatest" %% "scalatest" % "3.0.{}"

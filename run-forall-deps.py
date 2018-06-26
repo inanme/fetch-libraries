@@ -5,6 +5,13 @@ from subprocess import Popen, STDOUT
 from uuid import uuid4
 
 
+def my_exec(command):
+	process = Popen([command], shell=True)
+	process.communicate()
+	exit_code = process.wait()
+
+my_exec("git reset --hard origin/master")
+
 scalaTests=["""
 "org.scalatest" %% "scalatest" % "3.0.{}"
 """.format(i) for i in range(1, 6)] 
@@ -82,9 +89,8 @@ trait Greeting {
 		with open("build.sbt", "a+") as f:
 			f.write("""val `{}`=project\n""".format(projectname))
 
-process = Popen(["sbt ';+clean;+compile'"], shell=True, env= my_env)
-process.communicate()
-exit_code = process.wait()
+my_exec("sbt ';+clean;+compile'")
+
 
 # 		pass
 		# print(("%s %s") % (akkaV, scalaTestV))

@@ -1,5 +1,3 @@
-import Dependencies._
-
 scalaVersion := "2.12.6"
 
 val scala12X = Range(1, 7).map(minor => s"2.12.$minor")
@@ -13,6 +11,5 @@ lazy val root = (project in file(".")).
       scalaVersion := "2.12.6",
       version := "0.1.0-SNAPSHOT"
     )),
-    name := "fetch-libraries",
-    libraryDependencies ++= Seq(scalaTest) ++ akka
+    name := "fetch-libraries"
   )
